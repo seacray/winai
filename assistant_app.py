@@ -30,6 +30,11 @@ def chat_with_gpt(prompt, chat_history):
 
 
     # Define the Gradio interface
+def start_new_chat():
+    """Function to reset the chat history for a new session."""
+    return "", []  # Return empty response and reset history
+
+# Define the Gradio interface
 with gr.Blocks() as chat_app:
     gr.Markdown("""# Chat Completion App
 Interact with OpenAI's GPT-based model in a chat format.
@@ -44,6 +49,7 @@ Interact with OpenAI's GPT-based model in a chat format.
                 label="Your Message"
             )
             submit_btn = gr.Button("Send")
+            new_chat_btn = gr.Button("New Chat", variant="secondary")
 
         with gr.Column():
             output_box = gr.Textbox(
@@ -60,6 +66,11 @@ Interact with OpenAI's GPT-based model in a chat format.
         outputs=[output_box, chat_history]
     )
 
+    new_chat_btn.click(
+        fn=start_new_chat,
+        inputs=[],
+        outputs=[output_box, chat_history]
+    )
 
 if __name__ == "__main__":
     chat_app.launch()
