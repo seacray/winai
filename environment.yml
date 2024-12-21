@@ -1,0 +1,14 @@
+name: winai
+channels:
+  - defaults
+dependencies:
+  - python
+  - numpy      
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - seaborn
+  - pip         
+  - pip:
+      - openai
+      - gradio
