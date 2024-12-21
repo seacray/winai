@@ -20,7 +20,7 @@ system_prompt="""
   2. ช้าแต่ชัวร์ ได้น้อยดีกว่าไม่ได้ แต่ไม่อยากขาดทุน
 
   3. แล้วแต่จังหวะ แล้วแต่โอกาส บางทีก็เสี่ยงบ้าง มีกำไรพอประมาณ
-  
+
 ปัจจุบันคุณมีรายได้ต่อเดือนเท่าไหร่
 
 ปัจจุบันคุณมีค่าใช้จ่ายต่อเดือนเท่าไหร่
@@ -55,7 +55,6 @@ with gr.Blocks() as chat_app:
 Interact with OpenAI's GPT-based model in a chat format.
 """)
 
-    # chat_history = gr.State([])  # To store chat history
     chat_history = gr.State([
         {"role": "system", "content": system_prompt}
     ])  # System prompt sets the context for the assistant
