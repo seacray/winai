@@ -1,9 +1,12 @@
 import openai
 import gradio as gr
+import os 
+# importing necessary functions from dotenv library
+from dotenv import load_dotenv, dotenv_values 
+# loading variables from .env file
+load_dotenv() 
 
-
-
-openai.api_key = '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'
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 
 def chat_with_gpt(prompt, chat_history):
