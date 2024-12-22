@@ -2,11 +2,11 @@ import openai
 import os
 import streamlit as st
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from prompts import WELCOME_PROMPT
 
 
-load_dotenv()
+# load_dotenv()
 
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
