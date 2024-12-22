@@ -19,7 +19,7 @@ def generate_response(prompt, chat_history):
 
         # Call the OpenAI API to generate a response
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4o-mini",
             messages=messages
         )
 
