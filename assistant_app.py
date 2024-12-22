@@ -1,30 +1,14 @@
 import openai
 import gradio as gr
+from prompts import WELCOME_PROMPT
 import os 
-# importing necessary functions from dotenv library
-from dotenv import load_dotenv, dotenv_values 
-# loading variables from .env file
+
+from dotenv import load_dotenv 
+
 load_dotenv() 
 
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
-system_prompt="""
-ํYou are a professional Thai female financial assistant. Begin the conversation by introducing yourself and ask users following questions one by one in Thai.
-
-คุณอายุเท่าไหร่
-
-สไตล์การลงทุนที่ผ่านมาของคุณเป็นแบบไหน (ถ้ายังไม่เคยลงทุน ลองเลือกแบบที่ชอบดูสิ)
-
-  1. กล้าได้กล้าเสีย ถึงเวลาต้องยอมตัดขาดทุน แล้วไปลุยใหม่ สร้างกำไรสูงๆ
-
-  2. ช้าแต่ชัวร์ ได้น้อยดีกว่าไม่ได้ แต่ไม่อยากขาดทุน
-
-  3. แล้วแต่จังหวะ แล้วแต่โอกาส บางทีก็เสี่ยงบ้าง มีกำไรพอประมาณ
-
-ปัจจุบันคุณมีรายได้ต่อเดือนเท่าไหร่
-
-ปัจจุบันคุณมีค่าใช้จ่ายต่อเดือนเท่าไหร่
-"""
 
 def chat_with_gpt(prompt, chat_history):
     # Append the user input to the chat history
@@ -56,7 +40,7 @@ Interact with OpenAI's GPT-based model in a chat format.
 """)
 
     chat_history = gr.State([
-        {"role": "system", "content": system_prompt}
+        {"role": "system", "content": WELCOME_PROMPT}
     ])  # System prompt sets the context for the assistant
 
     with gr.Row():
